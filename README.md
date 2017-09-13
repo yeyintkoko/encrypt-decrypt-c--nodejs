@@ -5,7 +5,7 @@ Basic useful feature list:
  * Encrypt in C# and decrypt in Node.js
  * Encrypt in Node.js and decrypt in C#
  * No third party library require for C#
- * Node.js require crypto npm package only
+ * Node.js require crypto npm package only (**crypto is a build in npm package now**)
 
 Encrypt text with a security key (***no spacing and 16 characters is required for security key***). Decrypt the encrypted text with the same security key from encryption.
 
