@@ -4,3 +4,9 @@ c:\users\acebnk0104\documents\visual studio 2015\Projects\CryptoTest\CryptoTest\
 c:\users\acebnk0104\documents\visual studio 2015\Projects\CryptoTest\CryptoTest\obj\Debug\CryptoTest.csprojResolveAssemblyReference.cache
 c:\users\acebnk0104\documents\visual studio 2015\Projects\CryptoTest\CryptoTest\obj\Debug\CryptoTest.exe
 c:\users\acebnk0104\documents\visual studio 2015\Projects\CryptoTest\CryptoTest\obj\Debug\CryptoTest.pdb
+D:\workspace\encrypt-decrypt-c#-nodejs\c#\CryptoTest\bin\Debug\CryptoTest.exe.config
+D:\workspace\encrypt-decrypt-c#-nodejs\c#\CryptoTest\obj\Debug\CryptoTest.exe
+D:\workspace\encrypt-decrypt-c#-nodejs\c#\CryptoTest\obj\Debug\CryptoTest.pdb
+D:\workspace\encrypt-decrypt-c#-nodejs\c#\CryptoTest\bin\Debug\CryptoTest.exe
+D:\workspace\encrypt-decrypt-c#-nodejs\c#\CryptoTest\bin\Debug\CryptoTest.pdb
+D:\workspace\encrypt-decrypt-c#-nodejs\c#\CryptoTest\obj\Debug\CryptoTest.csprojResolveAssemblyReference.cache

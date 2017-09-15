@@ -35,13 +35,13 @@ namespace CryptoTest
             {
                 Console.WriteLine(except + "\n\n" + except.StackTrace);
                 return null;
-            }            
+            }
         }
 
         public static string Decrypt(string encodedText, string key)
         {
             TripleDESCryptoServiceProvider desCryptoProvider = new TripleDESCryptoServiceProvider();
-            
+
             byte[] byteBuff;
 
             try
@@ -52,21 +52,25 @@ namespace CryptoTest
 
                 string plaintext = Encoding.UTF8.GetString(desCryptoProvider.CreateDecryptor().TransformFinalBlock(byteBuff, 0, byteBuff.Length));
                 return plaintext;
-            } catch (Exception except) {
+            }
+            catch (Exception except)
+            {
                 Console.WriteLine(except + "\n\n" + except.StackTrace);
                 return null;
             }
 
-            
+
         }
+
 
         static void Main(string[] args)
         {
-            var encrypted = Encrypt("The text to be encrypted", "abcdefghijklmnop");
+            var securityKey = "abcdefghijklmnop";
+            var encrypted = Encrypt("The text to be encrypted", securityKey);
 
             Console.WriteLine("encrypted as: {0}", encrypted);
 
-            var decrypted = Decrypt(encrypted, "abcdefghijklmnop");
+            var decrypted = Decrypt(encrypted, securityKey);
             Console.WriteLine("decrypted as: {0}", decrypted);
 
             Console.ReadLine();

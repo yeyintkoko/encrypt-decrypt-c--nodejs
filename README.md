@@ -1,13 +1,16 @@
-### Encrypt Decrypt in C# and Node.js
+### Encrypt Decrypt in C# and Node.js and React Native
 
 Basic useful feature list:
 
- * Encrypt in C# and decrypt in Node.js
- * Encrypt in Node.js and decrypt in C#
- * No third party library require for C#
- * Node.js require crypto npm package only (**crypto is a build in npm package now**)
+ * Encrypt in C# and decrypt in Node.js and react native
+ * Encrypt in Node.js and react native and decrypt in C#
+ * Encrypt in Node.js and decrypt in react native
+ * Encrypt in react native and decrypt in Node.js
+ * No third party library require for C# (TripleDES is used)
+ * Node.js use crypto npm package only (**crypto is a build in npm package now**)
+ * React native use crypto-js npm package
 
-Encrypt text with a security key (***no spacing and 16 characters is required for security key***). Decrypt the encrypted text with the same security key from encryption.
+Encrypt text with a security key (***16 characters is required for security key in node.js and 24 characters for react native***). Decrypt the encrypted text with the same security key from encryption.
 
 --------------
 For C# (you can just copy the below code into your project.)
@@ -77,7 +80,7 @@ public static string Encrypt(string source, string key)
 ```
 -------------
 
-For Node.js (you can just copy the code into your project. Don't forget to install crypto npm package)
+For Node.js (you can just copy the code into your project)
 
 ```js
 function encrypt(text, key) {
@@ -115,4 +118,37 @@ var decryptedText = decrypt(encryptedText, securityKey);
 console.log('encrypted text:', encryptedText);
 console.log('decrypted text:', decryptedText);
 
+```
+
+For React native (you can just copy the code into your project. Don't forget to install crypto-js npm package)
+
+```js
+function encrypt(text, key) {
+  var CryptoJS = require("crypto-js");
+	var key = CryptoJS.enc.Utf8.parse(key);
+	var iv = CryptoJS.enc.Base64.parse('QUJDREVGR0g=');
+	var encoded = CryptoJS.enc.Utf8.parse(text);
+	var ciphertext = CryptoJS.TripleDES.encrypt(encoded, key, { mode: CryptoJS.mode.CBC, iv: iv });
+
+	return ciphertext.toString();
+}
+
+function decrypt(encryptedText, key) {
+  var CryptoJS = require("crypto-js");
+	var key = CryptoJS.enc.Utf8.parse(key);
+	var iv = CryptoJS.enc.Base64.parse('QUJDREVGR0g=');
+	var bytes = CryptoJS.TripleDES.decrypt(encryptedText, key, { mode: CryptoJS.mode.CBC, iv: iv });
+  var decryptedText = bytes.toString(CryptoJS.enc.Utf8);
+
+	return decryptedText;
+}
+
+
+var text = 'The text to be encrypted';
+var securityKey = 'abcdefghijklmnopabcdefgh';
+let encryptedText = encrypt(text, securityKey);
+let decryptedText = decrypt(encryptedText, securityKey);
+
+console.log('encrypted text:', encryptedText);
+console.log('decrypted text:', decryptedText);
 ```
